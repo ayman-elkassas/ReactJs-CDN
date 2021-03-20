@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script type="text/babel">
+        // 1- Using babel to write jsx for easy syntax
+        const name="React"
+        const elem1=<p className="test">Hello {name} {2*5} </p>;
+
+        // 2- Or Create html using React.createElement(ele,attr,children)
+        const elem3=React.createElement(
+            'p',
+            {className:'test'},
+            'Hello React2'
+        )
+
+        //if multi element create inside ()
+
+        const elem2=(
+            <p className="test">
+                <span>Span1</span>
+                <i>Italic</i>
+            </p>
+        );
+
+        //if convert top code to react.createElement
+        const elem4=React.createElement(
+            'p',
+            {className:'test'},
+            React.createElement(
+                'span',
+                null,
+                'Span1'
+            ),
+            React.createElement(
+                'i',
+                null,
+                'Italic'
+            ),
+        )
+
+        ReactDOM.render(elem4,document.getElementById('app'));
+    </script>
+    
+</body>
+</html>
