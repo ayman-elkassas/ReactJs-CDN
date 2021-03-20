@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script type="text/babel">
+
+        //component as class based
+
+        class App extends React.Component{
+
+            // not important the same name of state like 
+            state1={
+                child:"this is child comp"
+            }
+
+            render(){
+                return (
+                    <div>
+                        <Child name={this.state1.child}/>
+                        <ChildF name="test child"/>
+                    </div>
+                )
+            }
+        }
+
+        //as a sub class component
+        class Child extends React.Component{
+            //render function is an override function in component class 
+            render(){
+                return (
+                    <div>
+                        <p>Child Component and props is {this.props.name}</p>
+                    </div>
+                )
+            }
+        }
+
+        // as function component
+        function ChildF(props){
+            return(
+                <p>ChildF Component and props is {props.name}</p>
+            )
+        }
+
+        ReactDOM.render(<App/>,document.getElementById("app"))
+        
+    </script>
+    
+</body>
+</html>
